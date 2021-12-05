@@ -18,7 +18,7 @@ class Rules(Resource):
         rules = request.json
         if rules.get('rules').get('creation_date'):
             date = rules.get('rules').get('creation_date')
-            return "Sorted by date", 200
+            return date, 200
 
         elif rules.get('rules').get('size'):
             size = rules.get('rules').get('size')
@@ -42,5 +42,6 @@ class FileSystem(Resource):
 api.add_resource(Home, '/home', '/')
 api.add_resource(Rules, '/rules')
 api.add_resource(FileSystem, '/file-system')
+
 if __name__ == '__main__':
     app.run(debug=True)
